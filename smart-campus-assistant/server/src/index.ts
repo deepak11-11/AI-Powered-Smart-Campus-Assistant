@@ -15,6 +15,7 @@ import { env } from './config/env';
 import { connectDB } from './config/db';
 import { errorHandler } from './middleware/errorHandler';
 import healthRouter from './routes/health.routes';
+import authRouter from './routes/auth.routes';
 
 const app = express();
 
@@ -41,9 +42,9 @@ app.use(express.urlencoded({ extended: true }));
 // ─── Routes ───────────────────────────────────────────────────────────────────
 
 app.use('/api/health', healthRouter);
+app.use('/api/auth', authRouter);
 
 // Placeholder for future modules — each will be imported and mounted here
-// app.use('/api/auth',      authRouter);
 // app.use('/api/academic',  academicRouter);
 // app.use('/api/skills',    skillsRouter);
 // etc.
